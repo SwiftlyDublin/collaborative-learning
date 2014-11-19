@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8IM-FX-VLM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8IM-FX-VLM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -41,15 +41,27 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="vXZ-lx-hvc" id="X5P-Wb-J9V"/>
+                            <outlet property="delegate" destination="vXZ-lx-hvc" id="eNj-1x-0GZ"/>
+                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="ToDo Items" id="JoD-rE-AGN">
                         <barButtonItem key="backBarButtonItem" title="ToDo" id="aEI-ku-RTP"/>
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="cD1-rr-F13">
+                            <connections>
+                                <action selector="editTable:" destination="vXZ-lx-hvc" id="iGC-9r-aEv"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="j0h-LS-g2P">
                             <connections>
                                 <segue destination="OkL-rC-0Ma" kind="show" identifier="AddToDoItem" id="B8R-UJ-dqm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="editButton" destination="cD1-rr-F13" id="Y8D-c3-mdk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
