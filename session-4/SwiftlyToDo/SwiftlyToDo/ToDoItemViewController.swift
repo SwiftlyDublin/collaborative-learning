@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 class ToDoItemViewController: UIViewController {
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var statusSwitch: UISwitch!
     @IBOutlet var descriptionTextView: UITextView!
     
-    var toDoItem: ToDoItem? = nil
+    var toDoItem: ToDoEntity? = nil
     var toDoSaveDelegate: ToDoViewControllerDelegate? = nil
 
     override func viewDidLoad() {
@@ -28,10 +29,10 @@ class ToDoItemViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        if let item: ToDoItem = self.toDoItem {
-            self.titleTextField.text = item.titleText
-            self.descriptionTextView.text = item.descriptionText
-            self.statusSwitch.on = item.complete.boolValue
+        if let item: ToDoEntity = self.toDoItem {
+            self.titleTextField.text = item.toDoTitle
+            self.descriptionTextView.text = item.toDoDescription
+            self.statusSwitch.on = item.toDoComplete as Bool
         } else {
             self.statusSwitch.on = false
         }
@@ -44,13 +45,17 @@ class ToDoItemViewController: UIViewController {
             return
         }
         
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let context: NSManagedObjectContext = appDelegate.managedObjectContext!
+        
         if ((self.toDoItem) == nil) {
-            self.toDoItem = ToDoItem()
+            self.toDoItem = (NSEntityDescription.insertNewObjectForEntityForName("ToDoEntity", inManagedObjectContext:
+            context) as ToDoEntity)
         }
         
-        self.toDoItem?.titleText = titleText
-        self.toDoItem?.descriptionText = self.descriptionTextView.text
-        self.toDoItem?.complete = self.statusSwitch.on
+        self.toDoItem?.toDoTitle = titleText
+        self.toDoItem?.toDoDescription = self.descriptionTextView.text
+        self.toDoItem?.toDoComplete = self.statusSwitch.on
         
         self.toDoSaveDelegate?.saveToDoItem(self.toDoItem!)
     }

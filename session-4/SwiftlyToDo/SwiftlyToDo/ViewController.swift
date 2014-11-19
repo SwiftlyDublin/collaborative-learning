@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UITableViewController, ToDoViewControllerDelegate {
-    var toDoItems: [ToDoItem] = []
+    var toDoItems: [ToDoEntity] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +29,8 @@ class ViewController: UITableViewController, ToDoViewControllerDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ToDoCell") as UITableViewCell
         let toDoItem = self.toDoItems[indexPath.row]
-        cell.textLabel.text = toDoItem.titleText
-        cell.accessoryType = toDoItem.complete ? UITableViewCellAccessoryType.Checkmark : UITableViewCellAccessoryType.None
+        cell.textLabel.text = toDoItem.toDoTitle
+        cell.accessoryType = toDoItem.toDoComplete as Bool ? UITableViewCellAccessoryType.Checkmark : UITableViewCellAccessoryType.None
         return cell
     }
     
@@ -38,13 +39,23 @@ class ViewController: UITableViewController, ToDoViewControllerDelegate {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
-    func saveToDoItem(toDoItem: ToDoItem) {
+    func saveToDoItem(toDoItem: ToDoEntity) {
         let testItems = NSSet(array: self.toDoItems)
         if (!testItems.containsObject(toDoItem)) {
             self.toDoItems.append(toDoItem)
         }
-        self.tableView.reloadData()
-        self.navigationController?.popViewControllerAnimated(true)
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let context: NSManagedObjectContext = appDelegate.managedObjectContext!
+        
+        var error: NSError? = nil
+        var success = context.save(&error)
+        
+        if (success) {
+            self.tableView.reloadData()
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

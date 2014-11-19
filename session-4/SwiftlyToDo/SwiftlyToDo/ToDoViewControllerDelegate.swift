@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ToDoViewControllerDelegate {
-    func saveToDoItem(toDoItem: ToDoItem);
+    func saveToDoItem(toDoEntity: ToDoEntity);
 }

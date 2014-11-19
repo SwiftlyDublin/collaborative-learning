@@ -16,7 +16,7 @@
 		914FB6201A016BDB00FFBB87 /* SwiftlyToDoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FB61F1A016BDB00FFBB87 /* SwiftlyToDoTests.swift */; };
 		914FB62A1A01827700FFBB87 /* ToDoItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FB6291A01827700FFBB87 /* ToDoItemViewController.swift */; };
 		916448DC1A1C9A34006F95CF /* ToDoViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916448DB1A1C9A34006F95CF /* ToDoViewControllerDelegate.swift */; };
-		916448DE1A1C9A7A006F95CF /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916448DD1A1C9A7A006F95CF /* ToDoItem.swift */; };
+		91FB742F1A1D22BC004CBC45 /* ToDoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FB742E1A1D22BC004CBC45 /* ToDoEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +43,7 @@
 		914FB61F1A016BDB00FFBB87 /* SwiftlyToDoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftlyToDoTests.swift; sourceTree = "<group>"; };
 		914FB6291A01827700FFBB87 /* ToDoItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoItemViewController.swift; sourceTree = "<group>"; };
 		916448DB1A1C9A34006F95CF /* ToDoViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoViewControllerDelegate.swift; sourceTree = "<group>"; };
-		916448DD1A1C9A7A006F95CF /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
+		91FB742E1A1D22BC004CBC45 /* ToDoEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,11 +89,11 @@
 				914FB6291A01827700FFBB87 /* ToDoItemViewController.swift */,
 				914FB60B1A016BDB00FFBB87 /* ViewController.swift */,
 				916448DB1A1C9A34006F95CF /* ToDoViewControllerDelegate.swift */,
-				916448DD1A1C9A7A006F95CF /* ToDoItem.swift */,
 				914FB60D1A016BDB00FFBB87 /* Main.storyboard */,
 				914FB6101A016BDB00FFBB87 /* Images.xcassets */,
 				914FB6121A016BDB00FFBB87 /* LaunchScreen.xib */,
 				914FB6081A016BDB00FFBB87 /* SwiftlyToDo.xcdatamodeld */,
+				91FB742E1A1D22BC004CBC45 /* ToDoEntity.swift */,
 				914FB6041A016BDB00FFBB87 /* Supporting Files */,
 			);
 			path = SwiftlyToDo;
@@ -226,8 +226,8 @@
 			files = (
 				914FB60C1A016BDB00FFBB87 /* ViewController.swift in Sources */,
 				914FB60A1A016BDB00FFBB87 /* SwiftlyToDo.xcdatamodeld in Sources */,
-				916448DE1A1C9A7A006F95CF /* ToDoItem.swift in Sources */,
 				914FB6071A016BDB00FFBB87 /* AppDelegate.swift in Sources */,
+				91FB742F1A1D22BC004CBC45 /* ToDoEntity.swift in Sources */,
 				916448DC1A1C9A34006F95CF /* ToDoViewControllerDelegate.swift in Sources */,
 				914FB62A1A01827700FFBB87 /* ToDoItemViewController.swift in Sources */,
 			);
